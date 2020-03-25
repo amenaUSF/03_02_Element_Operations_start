@@ -85,6 +85,21 @@ namespace LINQ_Examples
                 Console.WriteLine("{0}, {1}, {2}, {3}", cust.Name, cust.Price, cust.Price2,cust.State);
             }
             Console.ReadKey();
+
+
+            IEnumerable<Customer> allcusts =
+            from c in customers
+            where new[] { "GA", "OR", "MI" }.Contains(c.State)
+            select c;
+
+            foreach (var cust in allcusts)
+            {
+                Console.WriteLine("{0}, {1}, {2}, {3}", cust.First, cust.Last, cust.State, cust.Price);
+            }
+            Console.ReadKey();
+
+
+
         }
     }
 }
